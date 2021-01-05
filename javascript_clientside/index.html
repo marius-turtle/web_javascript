@@ -1,0 +1,33 @@
+<!-- HTML gets parsed from top to bottom -->
+<!-- if there is a script-tag in the header it will delay the parsing process -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AsyncDeferDemo</title>
+    <script>
+        console.log("I am inline JavaScript")
+    </script>
+    <!-- <script src="default.js"></script> -->
+    <!-- <script src="defer1.js" defer></script> -->
+    <!-- <script src="defer2.js" defer></script> -->
+    <!-- <script src="async1.js" async></script> -->
+    <script src="async2.js" async></script>
+</head>
+
+<body>
+    <div class="section" id="default">
+        <h1>Normal</h1>
+        <p>HTML-Parsing is blocked while JS-scripts are getting downloaded AND executed.</p>
+    </div>
+    <div class="section" id="defer">
+        <h1>Defer</h1>
+        <p>HTML-Parsing is NOT blocked while JS-scripts are getting downloaded simultaneously AND the script-tag does NOT get executed immediately after download finishes but after the parsing finishes. That will cause the scripts be run in order not like with async in a random order.</p>
+    </div>
+    <div class="section" id="async">
+        <h1>Async</h1>
+        <p>HTML-Parsing is NOT blocked while JS-scripts are getting downloaded simultaneously to parsing, as soons as a script is downloaded parsing stops and the script gets executed.</p>
+    </div>
+</body>
+
+</html>
